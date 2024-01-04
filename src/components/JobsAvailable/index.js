@@ -4,7 +4,7 @@ import {BsSearch} from 'react-icons/bs'
 
 import Loader from 'react-loader-spinner'
 
-import JobCard from '../eachCardJob'
+import JobCard from '../eachJob'
 
 import Header from '../Header'
 import './index.css'
@@ -54,12 +54,12 @@ const stagesForConditionChecking = {
   load: 'LOADER',
 }
 
-class JobsDetails extends Component {
+class JobsAvailable extends Component {
   state = {
     name: '',
     imageUser: '',
     Description: '',
-    totallJobs: [],
+    totalJobs: [],
     inputValue: '',
     RadioInput: 0,
     EmployList: [],
@@ -102,7 +102,7 @@ class JobsDetails extends Component {
         title: each.title,
       }))
       this.setState({
-        totallJobs: jobsDataAll,
+        totalJobs: jobsDataAll,
         stateDeclared: stagesForConditionChecking.success,
       })
     } else {
@@ -221,11 +221,11 @@ class JobsDetails extends Component {
   }
 
   renderALlData = () => {
-    const {totallJobs} = this.state
+    const {totalJobs} = this.state
 
     return (
       <div className="AllDataOfItems">
-        {totallJobs.map(each => (
+        {totalJobs.map(each => (
           <JobCard each={each} key={each.id} />
         ))}
       </div>
@@ -246,10 +246,10 @@ class JobsDetails extends Component {
   )
 
   renderSuccessView = () => {
-    const {totallJobs, inputValue} = this.state
+    const {totalJobs, inputValue} = this.state
 
     const DataOfAllFetching =
-      totallJobs.length > 0 ? this.renderALlData() : this.DataNotFound()
+      totalJobs.length > 0 ? this.renderALlData() : this.DataNotFound()
 
     return (
       <div className="jobsALlBg">
@@ -360,4 +360,4 @@ class JobsDetails extends Component {
   }
 }
 
-export default JobsDetails
+export default JobsAvailable
