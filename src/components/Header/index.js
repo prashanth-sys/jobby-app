@@ -25,7 +25,7 @@ const Header = props => {
           <li className="HomeAndJobsStyle">Home</li>
         </Link>
 
-        <Link to="jobs" className="link">
+        <Link to="/jobs" className="link">
           <li className="HomeAndJobsStyle">Jobs</li>
         </Link>
       </ul>
